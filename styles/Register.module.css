@@ -1,0 +1,56 @@
+.container {
+    background-color: gray;
+    width: 100vw;
+    height: 100vh;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 20rem;
+    text-align: center;
+    padding: 4rem 3rem;
+    line-height: 2rem;
+    border-radius: 9px;
+}
+
+.childContainerDiv {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.childContainerDiv label {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.childContainerDiv input {
+    outline: none;
+    height: 2rem;
+    padding-left: 1rem;
+}
+
+.childContainerDiv input:focus {
+    outline: 2px solid teal;
+    border: none;
+    border-radius: 5px;
+    color: teal;
+}
+
+.modal button {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 10px;
+    background-color: teal;
+    border-radius: 9px;
+    border: 0;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
