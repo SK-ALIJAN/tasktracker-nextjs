@@ -13,8 +13,18 @@
 
 .container span {
     text-transform: capitalize;
-    background-color: rgb(229, 138, 11);
     padding: 1rem;
     letter-spacing: 1px;
     font-weight: 600;
+    animation: color 2s ease-in-out infinite;
+}
+
+@keyframes color {
+    from {
+        color: white
+    }
+
+    to {
+        color: rgb(22, 24, 22)
+    }
 }

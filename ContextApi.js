@@ -102,8 +102,21 @@ const ContextProvider = ({ children }) => {
         return { ...prev, IsLoading: true };
       });
       let data = await axios.patch(`${baseUrl}/todo/${id}`, updatedData);
+      let updatedTodoData = todo.data.map((ele) => {
+        if (ele._id === id) {
+          let singleEle = { ...ele, updatedData };
+          return singleEle;
+        }
+        return ele;
+      });
+      console.log(todo.data,updatedData ,updatedTodoData);
       setTodo((prev) => {
-        return { ...prev, IsLoading: false, IsError: false };
+        return {
+          ...prev,
+          IsLoading: false,
+          data: updatedTodoData,
+          IsError: false,
+        };
       });
     } catch (error) {
       setTodo((prev) => {
@@ -118,8 +131,11 @@ const ContextProvider = ({ children }) => {
         return { ...prev, IsLoading: true };
       });
       let data = await axios.delete(`${baseUrl}/todo/${id}`);
+      let deletedData = todo.data.filter((ele) => {
+        return ele._id !== id;
+      });
       setTodo((prev) => {
-        return { ...prev, IsLoading: false, IsError: false };
+        return { ...prev, IsLoading: false, IsError: false, data: deletedData };
       });
     } catch (error) {
       setTodo((prev) => {
