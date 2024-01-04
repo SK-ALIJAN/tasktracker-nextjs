@@ -1,0 +1,31 @@
+.container {
+    width: 30rem;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.container>div {
+    width: 25rem;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 2rem;
+    border-radius: 9px;
+    animation: skelaton 0.4s ease-in-out infinite;
+    background-color: rgba(128, 128, 128, 0.564);
+}
+
+@keyframes skelaton {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

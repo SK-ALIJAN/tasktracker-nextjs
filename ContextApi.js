@@ -86,7 +86,7 @@ const ContextProvider = ({ children }) => {
       let { data } = await axios.post(`${baseUrl}/todo`, newObj, { headers });
 
       setTodo((prev) => {
-        let allTodo = [...todoData.data, data];
+        let allTodo = [...todo.data, data];
         return { ...prev, IsLoading: false, data: allTodo, IsError: false };
       });
     } catch (error) {
