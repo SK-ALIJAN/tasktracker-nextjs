@@ -1,10 +1,15 @@
 .conatiner {
-    width: 30rem;
+    width: 40rem;
     margin: auto;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-top: 2rem;
     padding: 2rem;
     border-radius: 9px;
+}
+
+.title {
+    margin-bottom: 1rem;
+    color: grey
 }
 
 .conatiner>div {
@@ -14,9 +19,61 @@
 }
 
 .conatiner>div>div {
-    width: 25rem;
+    width: 35rem;
     margin: auto;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     padding: 2rem;
     border-radius: 9px;
+    cursor: pointer;
+}
+
+.conatiner>div>div header {
+    margin-bottom: 1rem;
+    border-bottom: 0.4px solid rgba(128, 128, 128, 0.412);
+    padding-bottom: 5px;
+    font-weight: 600;
+}
+
+.buttomDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttomDiv p {
+    color: grey;
+    font-weight: 600;
+    font-size: small;
+}
+
+.buttomDiv>div {
+    display: flex;
+    gap: 1rem;
+    background-color: rgb(144, 82, 239);
+    padding: 10px;
+    border-radius: 7px;
+    /* display: none; */
+}
+
+.buttomDiv>div button {
+    padding: 5px 1rem;
+    display: grid;
+    place-content: center;
+    border: 0;
+    background-color: white;
+    font-size: large;
+    border-radius: 7px;
+    transition: all ease-in-out .1s;
+    cursor: pointer;
+    color: rgb(144, 82, 239)
+}
+
+.buttomDiv>div button:active {
+    transform: scale(1.1);
+}
+
+.buttomDiv>div button:hover {
+    transform: scale(1.1);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
 }

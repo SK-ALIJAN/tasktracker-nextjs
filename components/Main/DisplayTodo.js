@@ -1,8 +1,10 @@
 import { useContextapi } from "@/ContextApi";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "@/styles/displayTodo.module.css";
 import Loading from "./Loading";
 import Error from "./Error";
+
+import SingleTodo from "./SingleTodo";
 
 const DisplayTodo = () => {
   let { getTodo, todo } = useContextapi();
@@ -22,13 +24,10 @@ const DisplayTodo = () => {
 
   return (
     <div className={styles.conatiner}>
+      <h1 className={styles.title}>Todos</h1>
       <div>
         {data.map((ele) => {
-          return (
-            <div key={ele._id}>
-              <header>{ele.todo}</header>
-            </div>
-          );
+          return <SingleTodo key={ele._id} {...ele} />;
         })}
       </div>
     </div>

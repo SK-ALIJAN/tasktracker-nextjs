@@ -4,7 +4,7 @@
     align-items: center;
     padding: 2rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    width: 30rem;
+    width: 40rem;
     margin: auto;
     margin-top: 3rem;
     border-radius: 8px;
@@ -12,7 +12,7 @@
 
 .container input {
     height: 2rem;
-    width: 18rem;
+    width: 25rem;
     padding-left: 1rem;
     border-radius: 8px;
     margin-right: 1rem;
@@ -28,7 +28,7 @@
 }
 
 .container button {
-    padding: 7px 1rem;
+    padding: 7px 1.5rem;
     border: 0;
     background-color: rgb(144, 82, 239);
     color: white;

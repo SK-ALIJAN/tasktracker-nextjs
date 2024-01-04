@@ -33,6 +33,7 @@ const InputField = () => {
           placeholder="enter ToDo"
           onChange={handleChange}
           value={text}
+          required
         />
         <button disabled={btn}>Submit</button>
       </form>
