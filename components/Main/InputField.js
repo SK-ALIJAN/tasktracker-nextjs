@@ -22,7 +22,7 @@ const InputField = () => {
   };
 
   let handleChange = (e) => {
-    setText(e.target.value.trim());
+    setText(e.target.value);
   };
 
   return (

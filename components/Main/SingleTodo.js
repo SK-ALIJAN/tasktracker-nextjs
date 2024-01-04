@@ -13,6 +13,7 @@ const SingleTodo = ({ todo, isComplete, _id }) => {
   let [userName, setUserName] = useState("");
   let [completed, setCompleted] = useState(isComplete);
   let { deleteTodo, updateTodo, user } = useContextapi();
+  let [modal, setModal] = useState(false);
 
   useEffect(() => {
     setUserName(GetLsData("userName"));
@@ -29,6 +30,12 @@ const SingleTodo = ({ todo, isComplete, _id }) => {
     toast.success("todo deleted successfully!");
   };
 
+  let updateTodoData = (e) => {
+    e.preventDefault();
+    updateTodo(_id, { todo: e.target[0].value });
+    setModal(false);
+  };
+
   return (
     <div>
       <header>{todo}</header>
@@ -39,7 +46,11 @@ const SingleTodo = ({ todo, isComplete, _id }) => {
           <button onClick={handleComplete}>
             {completed ? <IoMdDoneAll /> : <MdOutlineIncompleteCircle />}
           </button>
-          <button>
+          <button
+            onClick={() => {
+              setModal(true);
+            }}
+          >
             <FaRegEdit />
           </button>
           <button
@@ -52,6 +63,24 @@ const SingleTodo = ({ todo, isComplete, _id }) => {
         </div>
       </div>
       <ToastContainer />
+
+      {modal && (
+        <div className={styles.modal}>
+          <div>
+            <form action="" onSubmit={updateTodoData}>
+              <textarea placeholder="type todo..." required />
+              <button type="submit">Update todo</button>
+            </form>
+            <p
+              onClick={() => {
+                setModal(false);
+              }}
+            >
+              Not now, may be later
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
