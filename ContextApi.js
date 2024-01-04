@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
 import SetLsData from "./lib/SetLsData";
+import GetLsData from "./lib/GetLsData";
 
 const ContextApi = createContext(null);
 const baseUrl = `https://task-tracker-backend-azure.vercel.app`;
@@ -53,8 +54,9 @@ const ContextProvider = ({ children }) => {
   }
 
   async function getTodo() {
+    let token = GetLsData("token");
     const headers = {
-      Authorization: `Bearer ${user.token}`,
+      Authorization: `Bearer ${token}`,
     };
 
     try {
@@ -63,7 +65,7 @@ const ContextProvider = ({ children }) => {
       });
       let { data } = await axios.get(`${baseUrl}/todo`, { headers });
       setTodo((prev) => {
-        return { ...prev, IsLoading: false, IsError: false, data: data };
+        return { ...prev, IsLoading: false, IsError: false, data };
       });
     } catch (error) {
       setTodo((prev) => {
@@ -73,16 +75,18 @@ const ContextProvider = ({ children }) => {
   }
 
   async function createTodo(newObj) {
+    let token = GetLsData("token");
     const headers = {
-      Authorization: `Bearer ${user.token}`,
+      Authorization: `Bearer ${token}`,
     };
     try {
       setTodo((prev) => {
         return { ...prev, IsLoading: true };
       });
-      let data = await axios.post(`${baseUrl}/todo`, newObj, { headers });
+      let { data } = await axios.post(`${baseUrl}/todo`, newObj, { headers });
+
       setTodo((prev) => {
-        let allTodo = [...user.data, newObj];
+        let allTodo = [...todoData.data, data];
         return { ...prev, IsLoading: false, data: allTodo, IsError: false };
       });
     } catch (error) {
@@ -128,6 +132,7 @@ const ContextProvider = ({ children }) => {
     user,
     register,
     getTodo,
+    todo,
     createTodo,
     updateTodo,
     deleteTodo,
