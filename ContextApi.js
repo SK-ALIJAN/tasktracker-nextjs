@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
+import SetLsData from "./lib/SetLsData";
 
 const ContextApi = createContext(null);
 const baseUrl = `https://task-tracker-backend-azure.vercel.app`;
@@ -28,8 +29,11 @@ const ContextProvider = ({ children }) => {
         return { ...prev, IsLoading: true };
       });
       let { data } = await axios.post(`${baseUrl}/user`, { name, email });
-      // localStorage.setItem("token", data.token);
-      // localStorage.setItem("isRegister", true);
+      // setting data to localStorage
+      SetLsData("token", data.token);
+      SetLsData("isRegister", true);
+      SetLsData("userName", name);
+
       setUser((prev) => {
         return {
           ...prev,

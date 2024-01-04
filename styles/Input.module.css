@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 30rem;
+    margin: auto;
+    margin-top: 3rem;
+    border-radius: 8px;
+}
+
+.container input {
+    height: 2rem;
+    width: 18rem;
+    padding-left: 1rem;
+    border-radius: 8px;
+    margin-right: 1rem;
+    border: 0;
+    outline: 0.5px solid grey;
+    font-weight: 600;
+}
+
+.container input:focus {
+    outline: 3px solid rgb(144, 82, 239);
+    color: rgb(144, 82, 239);
+
+}
+
+.container button {
+    padding: 7px 1rem;
+    border: 0;
+    background-color: rgb(144, 82, 239);
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    letter-spacing: 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+.container button:active {
+    transform: scale(1.1);
+}
