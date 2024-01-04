@@ -1,9 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import axios from "axios";
 
 const ContextApi = createContext(null);
-const baseUrl = `https://task-tracker-backend-azure.vercel.app/
-`;
+const baseUrl = `https://task-tracker-backend-azure.vercel.app`;
 let UserCredencial = {
   IsLoading: false,
   name: "",
@@ -28,7 +27,7 @@ const ContextProvider = ({ children }) => {
       setUser((prev) => {
         return { ...prev, IsLoading: true };
       });
-      let { data } = await axios.post(baseUrl, { name, email });
+      let { data } = await axios.post(`${baseUrl}/user`, { name, email });
       // localStorage.setItem("token", data.token);
       // localStorage.setItem("isRegister", true);
       setUser((prev) => {
@@ -133,4 +132,10 @@ const ContextProvider = ({ children }) => {
   return <ContextApi.Provider value={Datas}>{children}</ContextApi.Provider>;
 };
 
-export { ContextApi, ContextProvider };
+export { ContextProvider };
+
+// Custom hook to access the context
+export let useContextapi = () => {
+  const context = useContext(ContextApi);
+  return context;
+};

@@ -1,12 +1,28 @@
 import Head from "next/head";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "@/styles/Register.module.css";
+import { useContextapi } from "@/ContextApi";
+import { useRouter } from "next/router";
 
 const register = () => {
   let [text, setText] = useState({ name: "", email: "" });
+  let [btn, setBtn] = useState(false);
+  let { register, user } = useContextapi();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user.IsRegister) {
+      router.push("/");
+    }
+  }, [user]);
 
   let handleSubmit = (event) => {
     event.preventDefault();
+    setBtn(true);
+    // register function register
+    register(text.name, text.email);
+
+    // for keep empty inputbox
     setText((prev) => {
       return { ...prev, name: "", email: "" };
     });
@@ -53,7 +69,9 @@ const register = () => {
             />
           </div>
 
-          <button type="submit">Register</button>
+          <button type="submit" disabled={btn}>
+            Register
+          </button>
         </form>
       </div>
     </div>
