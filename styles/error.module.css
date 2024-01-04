@@ -1,0 +1,21 @@
+.error_container {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    width: 30rem;
+    margin: auto;
+    margin-top: 5rem;
+}
+
+.error_icon {
+    margin-right: 10px;
+    color: #721c24;
+}
+
+.error_message {
+    margin: 0;
+}

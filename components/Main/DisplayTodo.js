@@ -2,6 +2,7 @@ import { useContextapi } from "@/ContextApi";
 import React, { useEffect } from "react";
 import styles from "@/styles/displayTodo.module.css";
 import Loading from "./Loading";
+import Error from "./Error";
 
 const DisplayTodo = () => {
   let { getTodo, todo } = useContextapi();
@@ -12,11 +13,11 @@ const DisplayTodo = () => {
   }, []);
 
   if (IsError) {
-    return <>something went wrong</>;
+    return <Error />;
   }
 
   if (IsLoading) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   return (
