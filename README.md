@@ -1,8 +1,6 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=23&duration=3000&pause=1000&random=false&width=435&lines=Hi+!+i+am+Sk+Alijan;This+is+my+Todo+app+;made+in+just+2+day;made+by+using+NextJs;backend+in+Nodejs)](https://git.io/typing-svg)
 
-****************************************************************************************
-
-# have a look in backend !
+# have a look also in backend !
 <a href="https://github.com/SK-ALIJAN/TaskTracker-backend">Github repository</a>
 
 ****************************************************************************************
